@@ -1,0 +1,42 @@
+<div class="card-columns">
+  {{#each articles}}
+        <div class="card">
+            <h2 class="card-header">{{this.kicker}}</h2>
+            {{#unless (isEmptyString this.image) includeZero=false}}
+            <img class="card-img-top" src={{this.image}} alt="Article Image">
+            {{/unless}}
+            <div class="card-body">
+                <h5 class="card-title"><a href="{{this.url}}">{{this.headline}}</a></h5>
+            </div>
+            <div class="card-footer">
+                <button type="button" class="btn btn-success showNotes" data-toggle="modal" data-target="#showNotes" data-id="{{this._id}}" data-headline="{{this.headline}}">Notes</button>
+            </div>
+        </div>
+  {{/each}}
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="showNotes" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-title">
+            <h6>Add a Note for:</h6>
+            <h6 class="" id="showNotesLabel"></h6>
+        </div>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="notesForm">
+            <textarea class="form-input" name="note"></textarea>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary" id="saveNote">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Guard My News!</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	</head>
+	<body>
+        <div class="text-center mb-5 py-3 bg-success">
+            <h1>Guard My News!</h1>
+            <h4>A news article scraper for TheGuardian.com</h4>
+        </div>
+		{{{ body }}}
+
+        <script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+        <script>
+            $(document).ready(function()
+            {
+                $(".showNotes").click(function ()
+                {
+                    var articleId = $(this).data('id');
+                    var headline = $(this).data("headline");
+                    $("#showNotes").data("id", articleId);
+                    $("#showNotesLabel").text(headline);
+                });
+
+                $("#saveNote").submit(function()
+                {
+                    event.preventDefault();
+
+                    $.post("/articles/" + id)
+                    .then(function(data)
+                    {
+
+                    })
+                    .catch(function(err)
+                    {
+                        console.log(err);
+                    })
+                });
+            });
+
+
+        </script>
+	</body>
+</html>
