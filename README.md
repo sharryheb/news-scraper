@@ -6,3 +6,6 @@ The app is hosted here: https://news-scraper-sdh.herokuapp.com/
 
 ## Instructions
 Simply load the page at https://news-scraper-sdh.herokuapp.com/ and start reading and making notes! 
+
+## Tech Used
+MongoDB, Mongoose, Express, Handlebars, cheerio, axios
